@@ -16,7 +16,11 @@
     background-color: #EEEED2;
     width: 70px;
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 
 .main-container {
@@ -42,4 +46,17 @@
     width: 60px;
     height: 60px;
     margin: 5px;
+}
+
+.circle {
+    width: 30%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.152);
+    border-radius: 50%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
