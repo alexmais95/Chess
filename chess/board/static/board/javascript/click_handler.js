@@ -10,7 +10,6 @@ class Click_handler {
             x.addEventListener('click', function(){
                 const id_of_element = x.getAttribute("id");
                 const inner_html = document.getElementById(id_of_element).innerHTML;
-                
                 if (clic_element.length > 0){
                     clic_element[0].removeAttribute('style');
                     clic_element.length = 0;
