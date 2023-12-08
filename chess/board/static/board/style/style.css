@@ -19,9 +19,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: 3;
+    
 }
-
+.invisibl {
+    width: 70px;
+}
 
 
 .main-container {
@@ -42,12 +45,16 @@
     background-color: #769656;
 }
 
+.pieses{
+    z-index: 2 ;
+}
 
 .pieses svg {
     width: 60px;
     height: 60px;
     margin: 5px;
-    z-index: -10;
+    z-index: 1;
+    
 }
 
 .circle {

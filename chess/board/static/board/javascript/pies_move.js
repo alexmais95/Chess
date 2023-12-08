@@ -1,111 +1,93 @@
 'use strict';
 
-import Generate_id from "./generate_id_for_squere.js";
 import li_pies from './pies.js';
+import Pawn_b from './pieses_logic/pawn/pawn_b.js';
+import Pawn_w from "./pieses_logic/pawn/pawn_w.js";
 
 
 class Pieses {
     constructor(){
-        this.g_id = new Generate_id();
-        this.all_squere = document.getElementsByClassName('square');
         this.pies = li_pies;
+        this.pown_b = new Pawn_b;
+        this.pown_w = new Pawn_w;
+        this.l_p = ['a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h']
     }
 
     handler(){
- 
+        
+       
         let father_container = document.querySelector('.main-container')
         father_container.addEventListener('click',  (el)=>{this.move(el)});
-        father_container.removeEventListener('click',  (el)=>{this.move(el)});
+        
          
     }
     
     move(el){
-  
-        try{
-            let cl_squere = el.target.closest('.square');
-            if (cl_squere.classList.contains('second')){
-                cl_squere.classList.remove('second')
-                return
-            };
-            let pies = el.target.closest('.pieses');
-            let name_of_pies = el.target.closest('.pieses').getAttribute('id');
-            let square_id = cl_squere.getAttribute('id');
-            let numb_id = parseInt(square_id[1]);
-            let leter_id = square_id[0]
-            let step_square = [];
         
-            //console.log(cl_squere.children[0].classList)
-  
-            for (let i=0; i<2;i++){
-                numb_id++;
-                step_square.push(document.getElementById(leter_id + numb_id));
-            };
-            this.remove_circle()
-            if(name_of_pies == 'pown_b'){
-                this.add_circle(step_square);
-                step_square.forEach((elem)=>{
-                    elem.addEventListener('click',(el)=>{this.end_move(el, 'pown_b', cl_squere )}, {once:true});
-                    elem.removeEventListener('click',(el)=>{this.end_move(el, 'pown_b', cl_squere )}, {once:true});
-                })
+        if(el.target.closest('.square').childNodes[0] !== undefined){
+            
+            try{
+                console.log(this.l_p.indexOf('c')+1)
+
+                let cl_squere = el.target.closest('.square');
                 
-            };
-
-        } catch(err){}
+                if(document.querySelectorAll('.touch').length == 0){
+                    cl_squere.classList.add('touch')
+                }
+                let numb_id = cl_squere.getAttribute('id')[1];
+                let leter_id = cl_squere.getAttribute('id')[0];
+                let pies_name = cl_squere.childNodes[0].id;
+                let squere_id_numb = cl_squere.getAttribute('id')[1]
                 
-    }
+                if(pies_name == 'pown_b' && squere_id_numb == 2 ){
+                    this.pown_b.first_move_pawn_b(numb_id,leter_id);
+        
+                };
 
+                if(pies_name == 'pown_b' && squere_id_numb > 2 ){
+                    this.pown_b.second_move_pawn_b(numb_id,leter_id);
+        
+                };
 
+                if(pies_name == 'pown_w' && squere_id_numb == 7 ){
+                    this.pown_w.first_move_pawn_w(numb_id,leter_id);
+        
+                };
 
-
-    //make shore we hawe one list, not list in list, or two list in one list
-    split_two_arr(arr){
-        const arr_ = []
-        for(const i of arr){
-            for(const j of i){
-                arr_.push(j)
-            }
-        }
-        return arr_
-    }
-
-    end_move(div, name_pies, b_div){
-        let targ = div.target.closest('.square')
-        try{
-            if(targ.children[0].classList.contains('circle')){
-                targ.innerHTML = this.pies[name_pies];
-                targ.classList.add('second')
-                this.remove_circle();
-                b_div.removeChild(b_div.children[0]);
-
-            } else{
-                return
-            }    
-        } catch(err){}
-
+                if(pies_name == 'pown_w' && squere_id_numb < 7 ){
+                    this.pown_w.second_move_pawn_w(numb_id,leter_id);
+        
+                };
+                  
+                if (cl_squere.childNodes[0].className == 'circle'){
+                    this.end_move(cl_squere);
+                }
+ 
+            } catch(err){console.log(err)};
+        
+        } else{console.log('Клітина пуста')};
        
-    };
-    //show how can you mowe
-    add_circle(list_el){    
-        const div = "<div class='circle'></div>";
-        for (let i of list_el){
-            i.innerHTML = div;       
-        };   
+                
     }
 
-
-    //when you click - circle is remove
-    remove_circle(){  
+    end_move(squere){
         let re_child = document.querySelectorAll('.circle');
-        
+        let touch = document.querySelectorAll('.touch');
+        let name_piese = touch[0].childNodes[0].id;
+
         if(re_child){ 
             for (const i of re_child){
                 i.parentNode.removeChild(i);
-            };     
-        };     
+            };             
+        }
+
+        try{
+            squere.innerHTML = this.pies[name_piese]; 
+            touch[0].removeChild(touch[0].childNodes[0]);
+            touch.forEach((el)=>{el.classList.remove('touch')});   
+        } catch(err){console.log(err)};
     }
 }
-
-
 
 
 
