@@ -1,11 +1,13 @@
 'use strict';
 
 import li_pies from "../../pies.js";
+import Halper from "../../handlers.js";
 
 class Pawn_w{
     
     constructor(){
         this.pies = li_pies;
+        this.halper = new Halper;
     }
 
 
@@ -17,7 +19,7 @@ class Pawn_w{
                 numb_id--;
                 step_square.push(document.getElementById(leter_id + numb_id));
             };
-            this.add_circle(step_square);
+            this.halper.add_circle(step_square);
         } catch(err){};
         
     }
@@ -31,19 +33,11 @@ class Pawn_w{
                 numb_id--;
                 step_square.push(document.getElementById(leter_id + numb_id));
             };
-            this.add_circle(step_square);
+            this.halper.add_circle(step_square);
             
         
         } catch(err){};
     }
-
-
-    add_circle(list_el){    
-        const div = "<div class='circle'></div>";
-        for (let i of list_el){
-            i.innerHTML = div;       
-        };   
-    }  
 
 }
 
