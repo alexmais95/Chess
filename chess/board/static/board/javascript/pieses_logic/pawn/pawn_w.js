@@ -12,9 +12,9 @@ class Pawn_w{
     }
 
 
-    first_move_pawn_w(numb_id, leter_id){
+    first_move_pawn_w(numb_id, leter_id, name_p){
         
-        this.victim(numb_id, leter_id);
+        this.victim(numb_id, leter_id, name_p);
         try{
             let step_square = [];
             for (let i=0; i<2;i++){
@@ -27,9 +27,9 @@ class Pawn_w{
     }
 
 
-    second_move_pawn_w(numb_id, leter_id){
+    second_move_pawn_w(numb_id, leter_id, name_p){
         
-        this.victim(numb_id, leter_id);
+        this.victim(numb_id, leter_id, name_p);
         try{
             let step_square = [];
             for (let i=0; i<1;i++){
@@ -43,7 +43,7 @@ class Pawn_w{
     }
 
 
-    victim(numb_id, leter_id){
+    victim(numb_id, leter_id, name_p){
         
         let step_square = [];
         let row_n = parseInt(numb_id) - 1
@@ -53,14 +53,7 @@ class Pawn_w{
         step_square.push(document.getElementById(this.l_p[right] + row_n));
         step_square.push(document.getElementById(this.l_p[left] + row_n));
         
-        for( let i of step_square){
-            if(i !== null){
-                if(i.childNodes.length !== 0 && i.childNodes[0].className == 'pieses'){
-                    document.getElementById(i.getAttribute('id')).style.backgroundColor = '#b75080';
-                    i.classList.add('victim')   
-                } 
-            }
-        }
+        this.helper.victim_logic(step_square, name_p);
 
     }
 

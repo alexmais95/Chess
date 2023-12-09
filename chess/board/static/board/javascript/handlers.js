@@ -13,9 +13,12 @@ class Helper{
     add_circle(list_el){    
         const div = "<div class='circle'></div>";
         for (let i of list_el){
-            if(i.childNodes.length == 0){
-                i.innerHTML = div;
+            if(i !== null){
+                if(i.childNodes.length == 0){
+                    i.innerHTML = div;
+                }
             }
+            
                    
         };   
     }
@@ -29,6 +32,29 @@ class Helper{
         }
     }
 
+
+    victim_logic(list, peas_name){
+        for( let i of list){
+            if(i !== null){ 
+                if(i.childNodes.length !== 0 && i.childNodes[0].className == 'pieses' ){ 
+                    if(this.last_leter(peas_name, i)){
+                        document.getElementById(i.getAttribute('id')).style.backgroundColor = '#b75080';
+                        i.classList.add('victim')
+                    }
+                       
+                } 
+            }
+        }  
+    }
+
+    last_leter(t_name, e_name){
+        let name = e_name.childNodes[0].id,
+            name_1 = name[name.length - 1],
+            name_2 = t_name[t_name.length - 1];
+        if(name_1 !== name_2){
+            return true
+        }
+    }
 
     remove_victim(){
         let square = document.querySelectorAll('.square');
