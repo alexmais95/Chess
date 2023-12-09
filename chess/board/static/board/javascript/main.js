@@ -17,8 +17,8 @@ const pieses = new Pieses();
 function main() { 
     create_board.insert_pieses();
     generate_id.generate_id();
-    click_handler.event_listener();
     pieses.handler();  
+    click_handler.event_listener();
 };
 
 main()

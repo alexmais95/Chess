@@ -15,7 +15,7 @@ class Click_handler {
                     clic_element.length = 0;
                 };
 
-                if (inner_html.includes('pieses'))
+                if (inner_html.includes('pieses') && x.getAttribute('style') !== 'background-color: rgb(183, 80, 128);')
                 {
                     document.getElementById(id_of_element).style.backgroundColor = 'yellow';
                     clic_element.push(x)
