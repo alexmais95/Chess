@@ -8,14 +8,14 @@ class Bishop{
         this.l_p = ['a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h'];
     }
 
-    bishop_mv(numb_id, leter_id, pies_name){
+    bishop_mv(numb_id, leter_id, pies_name, numb = 8){
         let step_square = [],
             iter = [['+', '-'],['-','+'],['+','+'],['-','-']];
         
         for(let j of iter){
             let column = this.l_p.indexOf(leter_id),
                 row = parseInt(numb_id);
-            for(let i=0; i<8; i++){
+            for(let i=0; i<numb; i++){
                 row = eval(row + j[0] + 1)
                 column = eval(column + j[1] + 1)
                 if(document.getElementById(this.l_p[column] + row) !== null){
