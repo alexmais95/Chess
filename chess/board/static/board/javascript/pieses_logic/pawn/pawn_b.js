@@ -15,42 +15,23 @@ class Pawn_b{
     first_move_pawn_b(numb_id, leter_id, name_p){
         
         this.victim(numb_id, leter_id, name_p);
-        try{
-            let step_square = [];
-            for (let i=0; i<2;i++){
-                numb_id++;
-                step_square.push(document.getElementById(leter_id + numb_id));
-            };
-            this.helper.add_circle(step_square);  
-        } catch(err){};
-        
+        this.helper.pawn_logic(numb_id, leter_id, '+', 2)
+  
     }
 
 
     second_move_pawn_b(numb_id, leter_id, name_p){
         
         this.victim(numb_id, leter_id, name_p);
-        try{
-            let step_square = [];
-            for (let i=0; i<1;i++){
-                numb_id++;
-                step_square.push(document.getElementById(leter_id + numb_id));
-            };
-            this.helper.add_circle(step_square);
-            
-        
-        } catch(err){console.log(err)};
+        this.helper.pawn_logic(numb_id, leter_id, '+', 1);   
     }
     
     victim(numb_id, leter_id, name_p){
         
-        let step_square = [];
-        let row_n = parseInt(numb_id) + 1
-        let column_n = this.l_p.indexOf(leter_id);
-        let right = column_n + 1;
-        let left = column_n - 1;
-        step_square.push(document.getElementById(this.l_p[right] + row_n));
-        step_square.push(document.getElementById(this.l_p[left] + row_n));
+        let step_square = [],
+            row_n = parseInt(numb_id) + 1,
+            column_n = this.l_p.indexOf(leter_id);
+        ['+', '-'].forEach((el)=>{step_square.push(document.getElementById(this.l_p[eval(column_n + el + 1)] + row_n))});
         
         this.helper.victim_logic(step_square, name_p);
 

@@ -10,11 +10,9 @@ class Knight{
 
 
     move_kn(numb, leter, peas_name){
-        let step_square = [];
-
-        let column = this.l_p.indexOf(leter);
-        let row = parseInt(numb);
-        console.log(column, row)
+        let step_square = [],
+            column = this.l_p.indexOf(leter),
+            row = parseInt(numb);
         //right
         step_square.push(document.getElementById(this.l_p[column + 2] + (row + 1)));
         step_square.push(document.getElementById(this.l_p[column + 2] + (row - 1)));
@@ -31,15 +29,6 @@ class Knight{
         this.helper.add_circle(step_square)
         this.helper.victim_logic(step_square, peas_name)
 
-        /*
-        for( let i of step_square){
-            if(i !== null){
-                if(i.childNodes.length !== 0 && i.childNodes[0].className == 'pieses'){
-                    document.getElementById(i.getAttribute('id')).style.backgroundColor = '#b75080';
-                    i.classList.add('victim')   
-                } 
-            }
-        }  */
     }
 
 

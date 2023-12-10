@@ -5,6 +5,7 @@ import Pawn_b from './pieses_logic/pawn/pawn_b.js';
 import Pawn_w from "./pieses_logic/pawn/pawn_w.js";
 import Knight from './pieses_logic/knight/knight.js';
 import Helper from './handlers.js';
+import Bishop from './pieses_logic/bishop/bishop.js';
 
 
 
@@ -15,6 +16,7 @@ class Pieses {
         this.pown_b = new Pawn_b;
         this.pown_w = new Pawn_w;
         this.knight = new Knight;
+        this.bishop = new Bishop;
         this.l_p = ['a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h']
     }
 
@@ -77,6 +79,12 @@ class Pieses {
                     this.helper.remove_victim()
                     this.helper.remove_circle();
                     this.knight.move_kn(numb_id, leter_id, pies_name);
+                };
+                
+                if(pies_name == 'bishop_b' || pies_name == 'bishop_w'){
+                    this.helper.remove_victim()
+                    this.helper.remove_circle();
+                    this.bishop.bishop_mv(numb_id, leter_id, pies_name);
                 };
                   
                 if (cl_squere.childNodes[0].className == 'circle' || arr_sq.includes('victim')){

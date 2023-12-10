@@ -7,6 +7,7 @@ class Helper{
 
     constructor(){
         this.pies = li_pies;
+        this.l_p = ['a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h'];
     }
     
     
@@ -97,6 +98,17 @@ class Helper{
         } catch(err){console.log(err)};
         
         this.remove_victim();
+    }
+
+    pawn_logic(numb_id, leter_id, math, step ){
+        try{
+            let step_square = [];
+            for (let i=0; i<step;i++){
+                numb_id = eval(numb_id + math + 1);
+                step_square.push(document.getElementById(leter_id + numb_id));
+            };
+            this.add_circle(step_square);  
+        } catch(err){console.log(err)};
     }
 }
 
