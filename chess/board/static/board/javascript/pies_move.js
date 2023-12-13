@@ -34,14 +34,19 @@ class Pieses {
         
          
     }
+
+    cleaner(){
+        this.helper.remove_victim();
+        this.helper.remove_circle();
+    }
     
     move(el){
         
         if(el.target.closest('.square').childNodes[0] !== undefined){
             
             try{
-                
 
+               
                 let cl_squere = el.target.closest('.square'),
                     arr_sq = [...cl_squere.classList],                
                     numb_id = cl_squere.getAttribute('id')[1],
@@ -54,66 +59,57 @@ class Pieses {
                 };
                 
                 if(pies_name == 'pown_b' && squere_id_numb == 2 ){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                   
+                    this.cleaner();
                     this.pown_b.first_move_pawn_b(numb_id,leter_id, pies_name);
-        
+                  
                 };
 
                 if(pies_name == 'pown_b' && squere_id_numb > 2 ){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.pown_b.second_move_pawn_b(numb_id,leter_id, pies_name);
         
                 };
 
                 if(pies_name == 'pown_w' && squere_id_numb == 7  ){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.pown_w.first_move_pawn_w(numb_id,leter_id, pies_name);
         
                 };
 
                 if(pies_name == 'pown_w' && squere_id_numb < 7 ){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.pown_w.second_move_pawn_w(numb_id,leter_id, pies_name);
                     
                 };
 
                 if(pies_name == 'knight_b' || pies_name == 'knight_w'){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.knight.move_kn(numb_id, leter_id, pies_name);
                 };
                 
                 if(pies_name == 'bishop_b' || pies_name == 'bishop_w'){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.bishop.bishop_mv(numb_id, leter_id, pies_name);
                 };
                 
                 if(pies_name == 'rook_b' || pies_name == 'rook_w'){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.rook.rook_mv(numb_id, leter_id, pies_name);
                 };
 
                 if(pies_name == 'queen_b' || pies_name == 'queen_w'){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.queen.queen_mv(numb_id, leter_id, pies_name);
                 };
 
                 if(pies_name == 'king_b' || pies_name == 'king_w'){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.king.king_mv(numb_id, leter_id, pies_name);
                 };
                   
                 if (cl_squere.childNodes[0].className == 'circle' || arr_sq.includes('victim')){
-                    this.helper.remove_victim();
-                    this.helper.remove_circle();
+                    this.cleaner();
                     this.helper.end_move(cl_squere);
                 };
  

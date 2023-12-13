@@ -1,15 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chess</title>
-    <link rel="icon" href="data:;base64,=">
-    <link rel="stylesheet" href="{% static 'board/style/style.css' %}" />
-</head>
+{% extends "board/main.html" %}
 
-<body>
-    
+
+{% block center %}
     <div class="dad-container">
         <div class="main-container">
           
@@ -108,9 +100,4 @@
         </div>
       </div>
     
-    <script type="module" src="{% static 'board/javascript/main.js' %}"></script>
-
-
-</body>
-    
-</html>
+{% endblock %}

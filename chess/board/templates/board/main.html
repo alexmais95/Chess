@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="{% static 'board/style/style.css' %}" />
+</head>
+<body>
+    <div id="header_spaces">
+        {% include 'board/header/header.html' %}
+    </div>
+    
+    <div id="center_spaces">
+        {% block center %}
+        {% endblock %}
+    </div>
+    
+    <div id="bottom_spaces">
+        {% include 'board/bottom/bottom.html' %}
+    </div>
+
+    <script type="module" src="{% static 'board/javascript/main.js' %}"></script>
+</body>
+</html>
