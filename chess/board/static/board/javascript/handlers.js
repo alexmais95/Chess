@@ -98,6 +98,29 @@ class Helper{
         } catch(err){console.log(err)};
         
         this.remove_victim();
+        this.change_torn()
+    }
+
+    change_torn(){
+        let color = document.querySelector('.turn');
+        
+        if (color.classList.contains('w')){
+            color.classList.remove('w');
+            color.classList.add('b');
+            color.textContent = 'Black turn'
+        } else{
+            color.classList.remove('b');
+            color.classList.add('w');
+            color.textContent = 'White turn'
+        }
+    }
+
+    torn (el){
+        let name = el.childNodes[0].id,
+            name_ = name[name.length - 1],
+            color = document.querySelector('.turn');
+        if (color.classList.contains(name_))
+            return true
     }
 
     pawn_logic(numb_id, leter_id, math, step ){
