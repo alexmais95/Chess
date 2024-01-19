@@ -22,16 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
-
+#SECRET_KEY = 'django-insecure-u47(%9mjcq-#@wqr3t_96ef+%(q%v6fm0_ba+i$8s*wqin%9-b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
+   # 'daphne',
     'chats',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,15 +79,26 @@ WSGI_APPLICATION = 'chess.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('NAME'),
-        "USER": os.getenv('USER'),
-        "PASSWORD": os.getenv('PASSWORD'),
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+   "default": {
+       "ENGINE": "django.db.backends.postgresql",
+       "NAME": os.getenv('NAME'),
+       "USER": os.getenv('USER'),
+       "PASSWORD": os.getenv('PASSWORD'),
+       "HOST": "localhost",
+       "PORT": "5432",
+   }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": 'chess',
+#         "USER": 'alex',
+#         "PASSWORD": 123456,
+#         "HOST": "localhost",
+#         "PORT": "5432",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -121,12 +132,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'board/static/'
+STATIC_URL = "/home/alexmais/pythonProd/chess/static/"
+            
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'board/static'),
-)
+    "/home/alexmais/pythonProd/chess/chess/static/",
+    )
+
+
+STATIC_ROOT = "/home/alexmais/pythonProd/chess/static/"
     
 
 
