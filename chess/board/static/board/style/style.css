@@ -150,8 +150,8 @@
 }
 
 .pieses svg {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     margin: 5px;
     z-index: 1;
     
@@ -162,6 +162,7 @@
     height: 30%;
     background-color: rgba(0, 0, 0, 0.152);
     border-radius: 50%;
+   
     
 }
 
@@ -275,3 +276,36 @@
 }
 
 
+/*
+<------STYLE FOR SECOND BOARD------->
+*/
+
+.board-container {
+    width: 640px;
+    height: 640px;
+    background-color: #c8f0e2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board_square {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.board_square svg {
+    width: 65px;
+    height: 65px;
+    margin: 5px;
+}
+
+.green {
+    background-color: #769656;
+}
+
+.white {
+    background-color: #d8c3b2;
+}

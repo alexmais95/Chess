@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'brt)qh#xcm1*(hw$jxa&91)3esjd-v91!vyn@!z+1u0qu@=uxk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -121,16 +121,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "/home/alexmais/pythonProd/chess/static/"
+STATIC_URL = "/home/mais/pythonProd/Chess/Chess/chess/static/"
             
 
 
 STATICFILES_DIRS = (
-    "/home/alexmais/pythonProd/chess/chess/static/",
+    "/home/mais/pythonProd/Chess/Chess/chess/static/",
     )
 
 
-STATIC_ROOT = "/home/alexmais/pythonProd/chess/static/"
+STATIC_ROOT = "/home/mais/pythonProd/Chess/static/"
     
 
 

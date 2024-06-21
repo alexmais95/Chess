@@ -1,9 +1,9 @@
 'use strict';
 
 
-class Click_handler {
+class ClickHandler {
     constructor(){
-        this.all_squere = document.getElementsByClassName('square');
+        this.all_squere = document.getElementsByClassName('board_square');
     }
 
     event_listener(){
@@ -31,4 +31,4 @@ class Click_handler {
 }
 
 
-export default Click_handler;
+export default ClickHandler;

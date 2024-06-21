@@ -1,0 +1,19 @@
+{% extends "board/main.html" %}
+
+
+{% block center %}
+    <div class="dad-container">
+        <div></div>
+        <div class="board-container">
+           
+        </div>
+        <div class="menu">
+          <div class="user1">User-1</div>
+          <div class="info">
+            <div class="turn w">White turn</div>
+          </div>
+          <div class="user1">{{user.username}}</div>
+        </div>
+      </div>
+    
+{% endblock %}
