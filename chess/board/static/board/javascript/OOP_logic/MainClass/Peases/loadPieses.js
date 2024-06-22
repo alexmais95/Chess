@@ -7,7 +7,7 @@ import Peas from "./peas.js";
 
 
 
-class LoadPiesForFirstBoard extends AbsLoadPieses {
+class LoadPies extends AbsLoadPieses {
     constructor(board) {
         super()
         this.board = board
@@ -17,7 +17,6 @@ class LoadPiesForFirstBoard extends AbsLoadPieses {
     load_pieses() {
         const list_pies = []
         for (const [key, value] of Object.entries(this.pieses)) {
-            console.log(value[3])
             
             value[1].forEach(el => {
                 let mvlogic
@@ -38,4 +37,4 @@ class LoadPiesForFirstBoard extends AbsLoadPieses {
 }
 
 
-export default LoadPiesForFirstBoard;
+export default LoadPies;

@@ -1,20 +1,20 @@
 'use strict';
 
 
-import AbsCreateBoard from "../../ABSClass/abscreateBoard.js";
-import GenerateIdForFirstBoard from "./generateIdForFirstBoard.js";
+import GenerateIdForBlackBoard from "./generateIdForBlackBoard.js";
+import AbsCreateBoard from "../../../ABSClass/abscreateBoard.js";
 
 
-class CreateFirstBoard extends AbsCreateBoard {
+class CreateBlackBoard extends AbsCreateBoard {
     constructor() {
         super()
         this.gameBoard = document.querySelector('.board-container');
-        this.id_generetor = new GenerateIdForFirstBoard()
+        this.id_generetor = new GenerateIdForBlackBoard()
     }
 
 
     create_board() {
-        
+       
         for (let i=1; i<=64; i++) {
             let square = document.createElement('div');
             square.classList.add('board_square');
@@ -34,4 +34,4 @@ class CreateFirstBoard extends AbsCreateBoard {
 
 
 
-export default CreateFirstBoard;
+export default CreateBlackBoard;

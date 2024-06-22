@@ -1,15 +1,15 @@
 'use strict';
 
-import absGenerateId from "../../ABSClass/absGenerateId.js";
+import absGenerateId from "../../../ABSClass/absGenerateId.js";
 
 
-class GenerateIdForFirstBoard extends absGenerateId {
+class GenerateIdForBlackBoard extends absGenerateId {
     
 
     constructor (){
         super()
-        this.laterArray = ["a", "b", "c", "d", "e", "f", "g", "h"];
-        this.numberArrey = [8, 7, 6, 5, 4, 3, 2, 1]
+        this.laterArray = ["h", "g", "f", "e", "d", "c", "b", "a"];
+        this.numberArrey = [1, 2, 3, 4, 5, 6, 7, 8]
         this.counter = 0
         this.numbCounter = 0
         
@@ -19,7 +19,6 @@ class GenerateIdForFirstBoard extends absGenerateId {
     generate_id (){
       let arrayOfsquare = document.querySelectorAll(".board_square");
       for (const square of arrayOfsquare) {
-        
         let numb = this.counter +1
         let id = this.laterArray[this.counter] + this.numberArrey[this.numbCounter]
         square.setAttribute("id", id);
@@ -37,4 +36,4 @@ class GenerateIdForFirstBoard extends absGenerateId {
 }
 
 
-export default GenerateIdForFirstBoard;
+export default GenerateIdForBlackBoard;

@@ -1,19 +1,19 @@
 'use strict';
 
-import AbsBoard from "../../ABSClass/absBoard.js";
-import CreateFirstBoard from "./createFirstBoard.js";
-import LoadPiesForFirstBoard from "../Peases/loadPiesesForFirstBoard.js";
+import AbsBoard from "../../../ABSClass/absBoard.js";
+import CreateWhiteBoard from "./createWhiteBoard.js";
+import LoadPies from "../../Peases/loadPieses.js";
 
 
 
 
-class FirstBoard extends AbsBoard {
+class WhiteBoard extends AbsBoard {
     constructor(game) {
         super()
         
         game.register_board(this)
-        this.create_board = new CreateFirstBoard()
-        this.load_pieses = new LoadPiesForFirstBoard(this) 
+        this.create_board = new CreateWhiteBoard()
+        this.load_pieses = new LoadPies(this) 
         this.list_of_circkle = [];
         
     }
@@ -47,4 +47,4 @@ class FirstBoard extends AbsBoard {
 }
 
 
-export default FirstBoard;
+export default WhiteBoard;

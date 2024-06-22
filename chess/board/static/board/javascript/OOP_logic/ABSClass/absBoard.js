@@ -9,8 +9,7 @@ class AbsBoard {
            
         }
         this.list_of_pieses
-        this.list_of_circkle
-        this.list_of_victim
+        
         
     }
 
